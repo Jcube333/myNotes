@@ -1,9 +1,25 @@
-import chalk from "chalk";
-import fs from "fs";
-import { getNotes } from "./notes.js";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 
-console.log(chalk.green.bold.bgBlue("Hey Jcube333"));
+const y = yargs(hideBin(process.argv));
 
-// notes();
-// // fs.writeFileSync("test.txt", "Hey This is Jcube333.");
-// fs.appendFileSync("test.txt", "Building the first Node app.");
+// y.version("1.1.0");
+y.command("add", "To Add a new note", () => {
+  console.log("Add");
+});
+
+y.command("remove", "To remove an existing note", () => {
+  console.log("Rmv");
+});
+
+y.command("list", "To list all the notes", () => {
+  console.log("Listt");
+});
+
+y.command("read", "To read the notes", () => {
+  console.log("Readd");
+});
+
+y.parse();
+
+console.log(y.argv);

@@ -12,7 +12,7 @@ function loadNotes() {
 
 export function addNotes(title, body) {
   const notes = loadNotes();
-  console.log(notes);
+
   const duplicateNote = notes.filter((note) => {
     return note.title == title;
   });
@@ -26,6 +26,21 @@ export function addNotes(title, body) {
     saveNote(notes);
   } else {
     console.log("Title already in use");
+  }
+}
+
+export function removeNote(title) {
+  var notes = loadNotes();
+  const prevLen = notes.length;
+  notes = notes.filter((note) => {
+    return note.title != title;
+  });
+
+  if (prevLen == notes.length)
+    console.log("Note with given title doesn't exist");
+  else {
+    saveNote(notes);
+    console.log("Note Removed Successfully");
   }
 }
 

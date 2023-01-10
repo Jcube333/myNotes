@@ -29,6 +29,7 @@ export function addNotes(title, body) {
   }
 }
 
+
 export function removeNote(title) {
   var notes = loadNotes();
   const prevLen = notes.length;
@@ -43,6 +44,7 @@ export function removeNote(title) {
     console.log("Note Removed Successfully");
   }
 }
+
 
 function saveNote(notes) {
   const notesJSON = JSON.stringify(notes);

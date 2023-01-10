@@ -3,6 +3,8 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { addNotes, removeNote } from "./notes.js";
 
+
+
 const y = yargs(hideBin(process.argv));
 
 // y.version("1.1.0");
@@ -42,6 +44,7 @@ y.command(
     removeNote(argv.title);
   }
 );
+
 
 y.command("list", "To list all the notes", () => {
   console.log("Listt");

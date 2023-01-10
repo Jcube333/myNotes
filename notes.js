@@ -1,4 +1,5 @@
 import fs from "fs";
+import chalk from "chalk";
 
 function loadNotes() {
   try {
@@ -29,7 +30,6 @@ export function addNotes(title, body) {
   }
 }
 
-
 export function removeNote(title) {
   var notes = loadNotes();
   const prevLen = notes.length;
@@ -38,13 +38,12 @@ export function removeNote(title) {
   });
 
   if (prevLen == notes.length)
-    console.log("Note with given title doesn't exist");
+    console.log(chalk.bgRed("Note with given title doesn't exist"));
   else {
     saveNote(notes);
-    console.log("Note Removed Successfully");
+    console.log(chalk.bgGreen("Note Removed Successfully"));
   }
 }
-
 
 function saveNote(notes) {
   const notesJSON = JSON.stringify(notes);

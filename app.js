@@ -1,5 +1,7 @@
+import fs from "fs";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+import { addNotes } from "./notes.js";
 
 const y = yargs(hideBin(process.argv));
 
@@ -8,6 +10,7 @@ y.command(
   "add",
   "To Add a new note",
   {
+    //builder to add options
     title: {
       desc: "Add title of your note",
       demandOption: true,
@@ -19,8 +22,9 @@ y.command(
       type: "string",
     },
   },
+  //handler
   (argv) => {
-    console.log(argv.title, argv.body);
+    addNotes(argv.title, argv.body);
   }
 );
 
@@ -37,5 +41,3 @@ y.command("read", "To read the notes", () => {
 });
 
 y.parse();
-
-console.log(y.argv);

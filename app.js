@@ -1,7 +1,9 @@
 import fs from "fs";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { addNotes } from "./notes.js";
+import { addNotes, removeNote } from "./notes.js";
+
+
 
 const y = yargs(hideBin(process.argv));
 
@@ -28,9 +30,21 @@ y.command(
   }
 );
 
-y.command("remove", "To remove an existing note", () => {
-  console.log("Rmv");
-});
+y.command(
+  "remove",
+  "To remove an existing note",
+  {
+    title: {
+      desc: "Title of Note to be removed",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  (argv) => {
+    removeNote(argv.title);
+  }
+);
+
 
 y.command("list", "To list all the notes", () => {
   console.log("Listt");

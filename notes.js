@@ -1,6 +1,7 @@
 import fs from "fs";
 import chalk from "chalk";
 
+//Load notes Utility
 function loadNotes() {
   try {
     const dataBuffer = fs.readFileSync("notes.json");
@@ -11,6 +12,7 @@ function loadNotes() {
   }
 }
 
+//Add a note to a file with provided title and body options
 export function addNotes(title, body) {
   const notes = loadNotes();
 
@@ -29,6 +31,7 @@ export function addNotes(title, body) {
   }
 }
 
+//Remove a note from file whose title is provided
 export function removeNote(title) {
   var notes = loadNotes();
   const prevLen = notes.length;
@@ -42,6 +45,7 @@ export function removeNote(title) {
   }
 }
 
+//Lists titles of all notes in the file
 export function listNotes() {
   const notes = loadNotes();
 
@@ -51,6 +55,7 @@ export function listNotes() {
   });
 }
 
+//Reads a note with given title from available notes in file
 export function readNote(title) {
   let notes = loadNotes();
   const noteRead = notes.find((note) => note.title == title);
@@ -65,6 +70,7 @@ export function readNote(title) {
   }
 }
 
+//Save Notes Utility
 function saveNote(notes) {
   const notesJSON = JSON.stringify(notes);
   fs.writeFileSync("notes.json", notesJSON);

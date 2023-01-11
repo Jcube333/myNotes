@@ -5,7 +5,9 @@ import { addNotes, listNotes, removeNote, readNote } from "./notes.js";
 
 const y = yargs(hideBin(process.argv));
 
-// y.version("1.1.0");
+y.version("1.1.0");
+
+//Add a file using this command
 y.command(
   "add",
   "To Add a new note",
@@ -28,6 +30,7 @@ y.command(
   }
 );
 
+//Remove a file using this command
 y.command(
   "remove",
   "To remove an existing note",
@@ -43,6 +46,7 @@ y.command(
   }
 );
 
+//List all files using this command
 y.command(
   "list",
   "To list all the notes",
@@ -54,6 +58,7 @@ y.command(
   }
 );
 
+//Read a file using this command
 y.command(
   "read",
   "To read the notes",

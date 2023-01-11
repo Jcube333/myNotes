@@ -14,11 +14,9 @@ function loadNotes() {
 export function addNotes(title, body) {
   const notes = loadNotes();
 
-  const duplicateNote = notes.filter((note) => {
-    return note.title == title;
-  });
+  const duplicateNote = notes.find((note) => note.title == title);
 
-  if (duplicateNote.length == 0) {
+  if (!duplicateNote) {
     notes.push({
       title: title,
       body: body,
@@ -34,9 +32,7 @@ export function addNotes(title, body) {
 export function removeNote(title) {
   var notes = loadNotes();
   const prevLen = notes.length;
-  notes = notes.filter((note) => {
-    return note.title != title;
-  });
+  notes = notes.filter((note) => note.title != title);
 
   if (prevLen == notes.length)
     console.log(chalk.bold.bgRed("Note with given title doesn't exist"));

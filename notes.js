@@ -31,13 +31,16 @@ export function addNotes(title, body) {
   }
 }
 
+
 //Remove a note from file whose title is provided
+
 export function removeNote(title) {
   var notes = loadNotes();
   const prevLen = notes.length;
   notes = notes.filter((note) => note.title != title);
 
   if (prevLen == notes.length)
+
     console.log(chalk.bold.bgRed("Note with given title doesn't exist"));
   else {
     saveNote(notes);
@@ -71,6 +74,15 @@ export function readNote(title) {
 }
 
 //Save Notes Utility
+
+    console.log(chalk.bgRed("Note with given title doesn't exist"));
+  else {
+    saveNote(notes);
+    console.log(chalk.bgGreen("Note Removed Successfully"));
+  }
+}
+
+
 function saveNote(notes) {
   const notesJSON = JSON.stringify(notes);
   fs.writeFileSync("notes.json", notesJSON);

@@ -48,9 +48,25 @@ export function removeNote(title) {
 
 export function listNotes() {
   const notes = loadNotes();
+
+  console.log(chalk.bgYellow.bold("Your Notes"));
   notes.forEach((note) => {
     console.log(chalk.italic.bold.bgBlue(note.title));
   });
+}
+
+export function readNote(title) {
+  let notes = loadNotes();
+  const noteRead = notes.find((note) => note.title == title);
+
+  if (!noteRead)
+    console.log(
+      chalk.bgRed.italic("Note with title " + title + " doesn't exist")
+    );
+  else {
+    console.log(chalk.bgYellow(noteRead.title));
+    console.log(chalk.bold.bgBlack(noteRead.body));
+  }
 }
 
 function saveNote(notes) {

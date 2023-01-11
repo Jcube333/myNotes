@@ -1,9 +1,7 @@
 import fs from "fs";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { addNotes, removeNote } from "./notes.js";
-
-
+import { addNotes, listNotes, removeNote } from "./notes.js";
 
 const y = yargs(hideBin(process.argv));
 
@@ -45,10 +43,16 @@ y.command(
   }
 );
 
-
-y.command("list", "To list all the notes", () => {
-  console.log("Listt");
-});
+y.command(
+  "list",
+  "To list all the notes",
+  {
+    //No options needed
+  },
+  () => {
+    listNotes();
+  }
+);
 
 y.command("read", "To read the notes", () => {
   console.log("Readd");

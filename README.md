@@ -1,5 +1,5 @@
 # myNotes
-> Command Line Note Taking Application with a great Color Theme.  
+> Command Line Note Taking Application with a great color Theme.  
 Perform Create, Read, Update{Coming Soon}, Delete and List Operations on Notes using CLI.
 
 ![](header.png)

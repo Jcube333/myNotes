@@ -1,4 +1,4 @@
-# myNotes
+# myNotes 📝
 > Command Line Note Taking Application with a great color Theme.  
 Perform Create, Read, Update, Delete and List Operations on Notes using CLI.
 

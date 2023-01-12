@@ -31,7 +31,6 @@ export function addNotes(title, body) {
   }
 }
 
-
 //Remove a note from file whose title is provided
 
 export function removeNote(title) {
@@ -40,7 +39,6 @@ export function removeNote(title) {
   notes = notes.filter((note) => note.title != title);
 
   if (prevLen == notes.length)
-
     console.log(chalk.bold.bgRed("Note with given title doesn't exist"));
   else {
     saveNote(notes);
@@ -73,18 +71,22 @@ export function readNote(title) {
   }
 }
 
-//Save Notes Utility
+//Updates a note with title 1
+export function updateNote(title1, newTitle, newBody) {
+  const notes = loadNotes();
+  const noteIndex = notes.findIndex((note) => note.title == title1);
 
-    console.log(chalk.bgRed("Note with given title doesn't exist"));
-  else {
+  if (noteIndex == -1) {
+    console.log(chalk.bgRed.bold("No note with title " + title1 + " exists."));
+  } else {
+    notes[noteIndex] = { title: newTitle, body: newBody };
     saveNote(notes);
-    console.log(chalk.bgGreen("Note Removed Successfully"));
+    console.log(chalk.bgGreen.bold("Note Updated."));
   }
 }
 
-
+//Save Notes Utility
 function saveNote(notes) {
   const notesJSON = JSON.stringify(notes);
   fs.writeFileSync("notes.json", notesJSON);
-  console.log("Note added successfully");
 }

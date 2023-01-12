@@ -1,7 +1,13 @@
 import fs from "fs";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { addNotes, listNotes, removeNote, readNote } from "./notes.js";
+import {
+  addNotes,
+  listNotes,
+  removeNote,
+  readNote,
+  updateNote,
+} from "./notes.js";
 
 const y = yargs(hideBin(process.argv));
 
@@ -43,6 +49,31 @@ y.command(
   },
   (argv) => {
     removeNote(argv.title);
+  }
+);
+
+y.command(
+  "update",
+  "Update an existing note",
+  {
+    title1: {
+      desc: "Title of note to be updated",
+      demandOption: true,
+      type: "string",
+    },
+    title2: {
+      desc: "New/updated title",
+      demandOption: true,
+      type: "string",
+    },
+    body2: {
+      desc: "New/Updated Body",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  (argv) => {
+    updateNote(argv.title1, argv.title2, argv.body2);
   }
 );
 

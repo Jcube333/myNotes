@@ -1,6 +1,6 @@
 # myNotes
 > Command Line Note Taking Application with a great color Theme.  
-Perform Create, Read, Update{Coming Soon}, Delete and List Operations on Notes using CLI.
+Perform Create, Read, Update, Delete and List Operations on Notes using CLI.
 
 ![](header.png)
 
@@ -24,7 +24,8 @@ See all the possible commands you can execute with the app.
 node app.js --help
 ```
 
-![Screenshot 2023-01-11 at 12 32 06 PM](https://user-images.githubusercontent.com/73747890/211739324-0a27adf3-71f1-4e6f-9e97-56b7e5261ae8.png)
+![Screenshot 2023-01-12 at 8 45 42 AM](https://user-images.githubusercontent.com/73747890/211967468-2230c7a0-b496-4e68-a352-7b7ce598b521.png)
+
 
 ## Adding a Note
 ```sh
@@ -50,12 +51,20 @@ node app.js read --title="ToDo2"
 ```
 ![Screenshot 2023-01-11 at 12 47 05 PM](https://user-images.githubusercontent.com/73747890/211741774-020a26e2-2881-425c-99dd-2a69fb7c9af4.png)
 
+## Updating a Note
+```sh
+node app.js update --title1="ToDo" --title2="noToDo" --body2="Scroll Instagram, Sleep for 25 hours"
+```
+![Screenshot 2023-01-12 at 8 48 03 AM](https://user-images.githubusercontent.com/73747890/211967776-0c83eece-ef4a-4b68-a9a7-e02b77154e32.png)
+
+
 
 ## Release History
 
 * 1.1.0
     * The first proper release
-    * Added support for listing files and reading them
+    * Added support for listing files and reading them.
+    * Added support for updating files.
     * Added styles with appealing color schemes
 * 1.0.0
     * Added functionalities for adding and removing a note
